@@ -9,8 +9,12 @@ class DioHelper {
   Future<Response> getData({
     Map<String, dynamic>? query,
     Map<String, dynamic>? headers,
+    required String endpoint,
   }) async {
     dio.options.headers = headers ?? ApiConstants.headers;
-    return await dio.get(ApiConstants.baseUrl, queryParameters: query);
+    return await dio.get(
+      "${ApiConstants.baseUrl}$endpoint",
+      queryParameters: query,
+    );
   }
 }

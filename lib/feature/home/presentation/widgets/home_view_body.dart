@@ -87,7 +87,11 @@ class _HomeViewBodyState extends State<HomeViewBody> {
                   builder: (context, state) {
                     final product = state.productModel;
                     if (state.getProductState == CubitStates.loading) {
-                      return const Center(child: CircularProgressIndicator());
+                      return const Center(
+                        child: CircularProgressIndicator(
+                          color: ColorManager.black,
+                        ),
+                      );
                     } else if (state.getProductState == CubitStates.success) {
                       return Expanded(
                         child: Column(

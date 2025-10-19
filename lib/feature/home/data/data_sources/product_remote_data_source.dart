@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+import 'package:task/core/utils/networking/api_constants.dart';
 import '../../../../core/utils/networking/api_service.dart';
 import '../model/product_model.dart';
 
@@ -15,7 +16,7 @@ class ProductRemoteDataSourceImpl implements ProductRemoteDataSource {
   Future<List<ProductModel>> fetchProducts({int? limit}) async {
     try {
       var response = await dioHelper.getData(
-        headers: {"Accept": "application/json"},
+        endpoint: ApiConstants.product,
         query: limit != null ? {"limit": limit} : null,
       );
 
