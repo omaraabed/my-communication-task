@@ -8,17 +8,10 @@ import 'task_app.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
-  // ======== Hive Initialization ========
   await Hive.initFlutter();
-
-  // سجّل الـ adapters مرة واحدة بس
   Hive.registerAdapter(ProductModelAdapter());
   Hive.registerAdapter(RatingAdapter());
-
-  // افتح الـ Box
   await Hive.openBox<ProductModel>('productsBox');
-
-  // ======== Dependency Injection ========
   await setupGetIt();
 
   runApp(const TaskApp());
